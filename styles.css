@@ -134,5 +134,7 @@ body{
 @media only screen and (max-width:700px){
     .future-forecast{
         justify-content: start;
+        align-items: none;
+        overflow-y: scroll;
     }
 }
