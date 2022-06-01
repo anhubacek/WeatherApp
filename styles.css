@@ -59,7 +59,7 @@ body{
 .current-info .others{
     display: flex;
     flex-direction: column;
-    background-color: rgba(29, 29, 36, 0.363);
+    background-color: rgba(29, 29, 36, 0.274);
     padding: 20px;
     border-radius: 10px;
     margin: 10px 0px;
@@ -72,7 +72,7 @@ body{
 }
 
 .future-forecast{
-    background-color: rgba(29, 29, 36, 0.363);
+    background-color: rgba(29, 29, 36, 0.39);
     padding: 25px;
     position:fixed;
     bottom: 0;
@@ -81,9 +81,9 @@ body{
     width: 100%;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    /* margin: 10px 0px; */
-    border: 0.8px solid white
+    /* border-radius: 10px;
+
+    border: 0.8px solid white */
 }
 
 .future-forecast .weather-forecast{
@@ -94,6 +94,9 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 10px;
+    border: 0.8px solid white;
+    padding:15px;
 }
 
 .future-forecast .today .day{
@@ -137,4 +140,31 @@ body{
         align-items: none;
         overflow-y: scroll;
     }
+
+    .date-container .time{
+        font-size: 60px;
+        
+    }
+    
+    .date-container #am-pm{
+        font-size: 25px;
+
+    }
+    
+    .date-container .date{
+        font-size: 20px;
+    }
+    
+   
+    
+    .place-container .time-zone{
+        font-size: 18px;
+    }
+    
+    .place-container .country{
+        font-size: 15px;
+        font-weight: 700;
+    }
+    
+    
 }
