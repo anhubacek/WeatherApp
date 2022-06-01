@@ -59,9 +59,33 @@ body{
 .current-info .others{
     display: flex;
     flex-direction: column;
+    background-color: rgba(29, 29, 36, 0.363);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px 0px;
+    border: 0.8px solid white
 }
 
 .current-info .others .weather-item{
     display: flex;
     justify-content: space-between;
+}
+
+.future-forecast{
+    background-color: rgba(29, 29, 36, 0.363);
+    padding: 25px;
+    position:fixed;
+    bottom: 0;
+    display: flex;
+    color:white;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    /* margin: 10px 0px; */
+    border: 0.8px solid white
+}
+
+.future-forecast .weather-forecast{
+    display: flex;
 }
