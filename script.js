@@ -37,10 +37,46 @@ function getWeatherData(){
         const lat = success.coords.latitude;
         const lon = success.coords.longitude;
 
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${apiKey}`).then(res => res.json()).then(data => {
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&units=metric&appid=${apiKey}`).then(res => res.json()).then(data => {
             console.log(data)
+            showWeatherData(data)
         })
     })
+
+}
+
+function showWeatherData(data){
+    const {humidity, pressure, sunrise, sunset, wind_speed} = data.current;
+
+const sunriseDate = new Date(sunrise*1000);
+const sunriseok = sunriseDate.getMinutes() < 10? sunriseDate.getHours() +":"+  `0${sunriseDate.getMinutes()}` : sunriseDate.getHours() +":"+ sunriseDate.getMinutes()
+
+const sunsetDate = new Date(sunset*1000);
+const sunsetok = sunsetDate.getMinutes() < 10? sunsetDate.getHours() +":"+  `0${sunsetDate.getMinutes()}` : sunsetDate.getHours() +":"+ sunsetDate.getMinutes()
+
+    currentWeatherItemsEl.innerHTML =  
+`<div class="weather-item">
+    <div>Humidity</div>
+    <div>${humidity} %</div>
+</div>
+<div class="weather-item">
+    <div>Pressure</div>
+    <div>${pressure}</div>
+</div>
+<div class="weather-item">
+    <div>Wind Speed</div>
+    <div>${wind_speed}</div>
+</div>
+
+<div class="weather-item">
+    <div>Sunrise</div>
+    <div>${sunriseok}</div>
+</div>
+<div class="weather-item">
+    <div>Sunset</div>
+    <div>${sunsetok}</div>
+</div>`
+
 
 }
 
