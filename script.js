@@ -70,17 +70,50 @@ const sunsetok = sunsetDate.getMinutes() < 10? sunsetDate.getHours() +":"+  `0${
 
 <div class="weather-item">
     <div>Sunrise</div>
-    <div>${sunriseok}</div>
+    <div>${sunriseok} AM</div>
 </div>
 <div class="weather-item">
     <div>Sunset</div>
-    <div>${sunsetok}</div>
-</div>`
+    <div>${sunsetok} PM</div>
+</div>`;
 
+let otherDayForecast = "";
+let currenttemp = ""
 
+data.daily.forEach((day, idx) => {
+    if (idx == 0) {
+        const dayok = new Date(day.dt*1000)
+        const dayName = days[dayok.getDay()]
+        currenttemp +=  `
+        <div class="today" id="current-temp">
+        
+        <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="" class="w-icon">
+        <div class="other">
+            <div class="day">${dayName}</div>
+            <div class="temp">Day  ${day.temp.day}&#176;C</div>
+            <div class="temp">Night  ${day.temp.night}&#176;C</div>
+           
+        </div>`
+    } else {
+        const dayok = new Date(day.dt*1000)
+        const dayName = days[dayok.getDay()]
+        otherDayForecast += `
+        <div class="weather-forecast-item">
+        <div class="day">${dayName}</div>
+        <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="" class="w-icon">
+        <div class="temp">Día - ${day.temp.day}&#176;C</div>
+        <div class="temp">Noche - ${day.temp.night}&#176;C</div>
+        
+    </div>`
+    }
+})
+
+weatherForecastEl.innerHTML = otherDayForecast;
+currentTempEl.innerHTML = currenttemp;
 }
 
 getWeatherData()
+
 
 
 // https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
