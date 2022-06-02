@@ -14,7 +14,7 @@ HTML
 CSS
 <br>
 
-## Imagenes
+## Imágenes
 
 ![App](/images/weatherok.jpeg)
 
