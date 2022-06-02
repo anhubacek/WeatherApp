@@ -12,7 +12,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .container{
@@ -146,8 +146,17 @@ body{
     font-weight: 100;
     font-size: 16px;
 }
+.place-container .aboutMe{
+    font-size: 12px;
+    margin: 4px;
+}
 
-
+.aboutMe .icon{
+    width: 16px;
+    align-self: center;
+    margin: 2px;
+    vertical-align: middle;
+}
 @media only screen and (max-width:700px){
     .future-forecast{
         justify-content: start;
