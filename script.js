@@ -1,7 +1,7 @@
 const timeEl = document.getElementById("time");
 const dateEl = document.getElementById("date");
 const currentWeatherItemsEl = document.getElementById("current-weather-items");
-const timeZone = document.getElementById("time-zone");
+const timeZoneEl = document.getElementById("time-zone");
 const countryEl = document.getElementById("country");
 const weatherForecastEl = document.getElementById("weather-forecast");
 const currentTempEl = document.getElementById("current-temp");
@@ -32,13 +32,13 @@ dateEl.innerHTML = days[day] + ", " + day + " " + months[month];
 
 function getWeatherData(){
     navigator.geolocation.getCurrentPosition((success) => {
-        console.log(success)
+      
 
         const lat = success.coords.latitude;
         const lon = success.coords.longitude;
 
         fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&units=metric&appid=${apiKey}`).then(res => res.json()).then(data => {
-            console.log(data)
+
             showWeatherData(data)
         })
     })
@@ -53,6 +53,9 @@ const sunriseok = sunriseDate.getMinutes() < 10? sunriseDate.getHours() +":"+  `
 
 const sunsetDate = new Date(sunset*1000);
 const sunsetok = sunsetDate.getMinutes() < 10? sunsetDate.getHours() +":"+  `0${sunsetDate.getMinutes()}` : sunsetDate.getHours() +":"+ sunsetDate.getMinutes()
+
+    timeZoneEl.innerHTML = data.timezone;
+    countryEl.innerHTML = data.lat + "N" + data.lon + "E"
 
     currentWeatherItemsEl.innerHTML =  
 `<div class="weather-item">
@@ -101,8 +104,8 @@ data.daily.forEach((day, idx) => {
         <div class="weather-forecast-item">
         <div class="day">${dayName}</div>
         <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="" class="w-icon">
-        <div class="temp">Día - ${day.temp.day}&#176;C</div>
-        <div class="temp">Noche - ${day.temp.night}&#176;C</div>
+        <div class="temp">Day - ${day.temp.day}&#176;C</div>
+        <div class="temp">Night - ${day.temp.night}&#176;C</div>
         
     </div>`
     }
