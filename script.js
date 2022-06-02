@@ -1,5 +1,6 @@
 const timeEl = document.getElementById("time");
 const dateEl = document.getElementById("date");
+const tempEl = document.getElementById("temp");
 const currentWeatherItemsEl = document.getElementById("current-weather-items");
 const timeZoneEl = document.getElementById("time-zone");
 const countryEl = document.getElementById("country");
@@ -59,13 +60,14 @@ const sunsetok = sunsetDate.getMinutes() < 10? sunsetDate.getHours() +":"+  `0${
 
     currentWeatherItemsEl.innerHTML =  
 `<div class="weather-item">
+<div>Temperature</div>
+<div>${data.current.temp} &#176;C</div>
+</div>
+<div class="weather-item">
     <div>Humidity</div>
     <div>${humidity} %</div>
 </div>
-<div class="weather-item">
-    <div>Pressure</div>
-    <div>${pressure}</div>
-</div>
+
 <div class="weather-item">
     <div>Wind Speed</div>
     <div>${wind_speed}</div>
@@ -90,13 +92,20 @@ data.daily.forEach((day, idx) => {
         currenttemp +=  `
         <div class="today" id="current-temp">
         
+        <div class="todayName">Today</div>
+        <div >
+        <div class="items">
         <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="" class="w-icon">
         <div class="other">
-            <div class="day">${dayName}</div>
-            <div class="temp">Day  ${day.temp.day}&#176;C</div>
-            <div class="temp">Night  ${day.temp.night}&#176;C</div>
+            
+            <div class="temp">Day - ${day.temp.day}&#176;C</div>
+            <div class="temp">Night -  ${day.temp.night}&#176;C</div>
            
+        </div>
+        </div>
+       
         </div>`
+        
     } else {
         const dayok = new Date(day.dt*1000)
         const dayName = days[dayok.getDay()]
@@ -113,6 +122,7 @@ data.daily.forEach((day, idx) => {
 
 weatherForecastEl.innerHTML = otherDayForecast;
 currentTempEl.innerHTML = currenttemp;
+
 }
 
 getWeatherData()

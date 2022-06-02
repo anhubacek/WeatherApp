@@ -45,6 +45,7 @@ body{
     font-size: 30px;
 }
 
+
 .place-container{
     text-align: end;
 }
@@ -96,14 +97,23 @@ body{
 
 .future-forecast .today{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
     border: 0.8px solid white;
-    padding:15px;
-    height: 205px;
+    padding:10px;
+    height: 215px;
+    width: 250px;
      background-color: rgba(29, 29, 36, 0.432);
     
+}
+
+.today .items{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .future-forecast .today .day{
@@ -114,8 +124,22 @@ body{
     
 }
 
+.future-forecast .today .todayName {
+    color: white;
+    font-size: 20px;
+  
+    margin-bottom: 10px;
+    border-radius: 50px;
+    text-align: center;
+ 
+    padding: 5px 15px;
+    background-color: rgba(39, 40, 43, 0.74);
+
+}
+
+
 .future-forecast .today .temp{
-    font-size:18px;
+    font-size:20px;
     font-weight: 350;
     padding-top: 15px;
     text-align: center;
@@ -132,6 +156,7 @@ body{
     border-radius: 10px;
     padding: 15px;
     width: 150px;
+
     background-color: rgba(29, 29, 36, 0.432);
 }
 
