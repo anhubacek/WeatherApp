@@ -12,21 +12,24 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .container{
     padding: 20px 70px;
     color:white;
+    
 }
 
 .current-info{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    
 }
 .date-container{
-    font-weight: 100;
+    font-weight: 200;
+    
 }
 .date-container .time{
     font-size: 70px;
@@ -47,19 +50,19 @@ body{
 }
 
 .place-container .time-zone{
-    font-size: 30px;
+    font-size: 22px;
     font-weight: 100;
 }
 
 .place-container .country{
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .current-info .others{
     display: flex;
     flex-direction: column;
-    background-color: rgba(29, 29, 36, 0.363);
+    background-color: rgba(29, 29, 36, 0.432);
     padding: 20px;
     border-radius: 10px;
     margin: 10px 0px;
@@ -69,11 +72,12 @@ body{
 .current-info .others .weather-item{
     display: flex;
     justify-content: space-between;
+    margin: 3px;
 }
 
 .future-forecast{
-    background-color: rgba(29, 29, 36, 0.363);
-    padding: 25px;
+    background-color: rgba(29, 29, 36, 0.432);
+    padding: 20px;
     position:fixed;
     bottom: 0;
     display: flex;
@@ -81,9 +85,9 @@ body{
     width: 100%;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    /* margin: 10px 0px; */
-    border: 0.8px solid white
+    /* border-radius: 10px;
+
+    border: 0.8px solid white */
 }
 
 .future-forecast .weather-forecast{
@@ -94,6 +98,12 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 10px;
+    border: 0.8px solid white;
+    padding:15px;
+    height: 205px;
+     background-color: rgba(29, 29, 36, 0.432);
+    
 }
 
 .future-forecast .today .day{
@@ -101,11 +111,15 @@ body{
     background-color: rgba(39, 40, 43, 0.74);
     border-radius: 50px;
     text-align: center;
+    
 }
 
 .future-forecast .today .temp{
-    font-size: 10px;
+    font-size:18px;
+    font-weight: 350;
     padding-top: 15px;
+    text-align: center;
+  
 }
 
 .weather-forecast .weather-forecast-item{
@@ -117,6 +131,8 @@ body{
     border: 0.8px solid white;
     border-radius: 10px;
     padding: 15px;
+    width: 150px;
+    background-color: rgba(29, 29, 36, 0.432);
 }
 
 .weather-forecast .weather-forecast-item .day{
@@ -128,10 +144,77 @@ body{
 
 .weather-forecast .weather-forecast-item .temp{
     font-weight: 100;
+    font-size: 16px;
+}
+.place-container .aboutMe{
+    font-size: 12px;
+    margin: 4px;
 }
 
-
+.aboutMe .icon{
+    width: 16px;
+    align-self: center;
+    margin: 2px;
+    vertical-align: middle;
+}
 @media only screen and (max-width:700px){
+    .future-forecast{
+        justify-content: start;
+        align-items: none;
+        overflow-y: scroll;
+    }
+    .current-info{
+        display: flex;
+        flex-direction: column-reverse;
+      
+        flex-wrap: wrap;
+        
+    }
+    .container{
+        padding: 20px 40px;
+        color:white;
+        
+    }
+    .date-container .time{
+        font-size: 60px;
+        
+    }
+    
+    .date-container #am-pm{
+        font-size: 25px;
+
+    }
+    
+    .date-container .date{
+        font-size: 20px;
+    }
+    
+   
+    
+    .place-container .time-zone{
+        font-size: 16px;
+    }
+    
+    .place-container .country{
+        font-size: 12px;
+        font-weight: 600;
+    }
+    
+    .future-forecast .today .temp{
+        font-size:18px;
+  
+    }
+
+    .weather-forecast .weather-forecast-item .temp{
+        font-size: 16px;
+    }
+
+    .current-info .others .weather-item{
+        margin: 3px;
+    }
+}
+
+@media only screen and (max-width:2000px){
     .future-forecast{
         justify-content: start;
         align-items: none;
