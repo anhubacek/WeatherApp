@@ -114,10 +114,13 @@ data.daily.forEach((day, idx) => {
         otherDayForecast += `
         <div class="weather-forecast-item">
         <div class="day">${dayName}</div>
+        <div class="items">
         <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="" class="w-icon">
+        <div class="other">
         <div class="temp">Day - ${day.temp.day}&#176;C</div>
         <div class="temp">Night - ${day.temp.night}&#176;C</div>
-        
+        </div>
+        </div>
     </div>`
     }
 })
